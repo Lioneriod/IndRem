@@ -26,7 +26,6 @@ public class Main {
         try (BufferedReader leitorChaves = new BufferedReader(new FileReader("palavras-chave.txt"))) {
             String linha;
             while ((linha = leitorChaves.readLine()) != null) {
-                // Divide a linha pelas vírgulas e espaços opcionais
                 String[] partes = linha.split(",\\s*");
                 for (String parte : partes) {
                     palavrasChave.add(parte.trim().toLowerCase());

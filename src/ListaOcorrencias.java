@@ -2,24 +2,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 class ListaOcorrencias {
-    private Na cabeca;
-    private Na cauda;
+    private No inicio;
+    private No fim;
 
     public void adicionar(int linha) {
-        if (cauda == null) {
-            cabeca = new Na(linha);
-            cauda = cabeca;
+        if (fim == null) {
+            inicio = new No(linha);
+            fim = inicio;
         } else {
-            if (cauda.linha < linha) {
-                cauda.proximo = new Na(linha);
-                cauda = cauda.proximo;
+            if (fim.linha < linha) {
+                fim.proximo = new No(linha);
+                fim = fim.proximo;
             }
         }
     }
 
     public List<Integer> getOcorrencias() {
         List<Integer> lista = new ArrayList<>();
-        Na atual = cabeca;
+        No atual = inicio;
         while (atual != null) {
             lista.add(atual.linha);
             atual = atual.proximo;
@@ -27,11 +27,11 @@ class ListaOcorrencias {
         return lista;
     }
 
-    private static class Na {
+    private static class No {
         int linha;
-        Na proximo;
+        No proximo;
 
-        Na(int linha) {
+        No(int linha) {
             this.linha = linha;
         }
     }
